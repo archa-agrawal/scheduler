@@ -4,7 +4,7 @@ import 'components/DayListItem.scss';
 
 const DayListItem = (props) => {
   let DayListItemClass = 'day-list__item'
-  DayListItemClass += classNames({'--selected': props.selected}, {'--full': (props.spots===0)})
+  DayListItemClass = classNames('day-list__item', {'day-list__item--selected': (props.selected===props.name)}, {'day-list__item--full': (props.spots===0)})
   
   const formatSpots = (spotsRemaining) => {
     if (spotsRemaining === 0) {
@@ -16,8 +16,13 @@ const DayListItem = (props) => {
     }
   }
   const totalSpots = formatSpots(props.spots)
+  const clickHandler = ()=> {
+    if(props.setDay){
+      props.setDay(props.name)
+    }
+  }
   return (
-    <li className={DayListItemClass} onClick={()=> props.setDay(props.name)}>
+    <li key={props.id} className={DayListItemClass} onClick={clickHandler}>
       <h2  className="text--regular">{props.name}</h2> 
       <h3 className="text--light">{totalSpots}</h3>
     </li>

@@ -29,6 +29,10 @@
 
     &--full {
       opacity: $inactive-opacity;
+
+      &:hover {
+        background-color: #5f27cd;
+      }
     }
   }
 }
