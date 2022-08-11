@@ -4,7 +4,7 @@ import 'components/DayListItem.scss';
 
 const DayListItem = (props) => {
   let DayListItemClass = 'day-list__item'
-  DayListItemClass = classNames('day-list__item', {'day-list__item--selected': (props.selected===props.name)}, {'day-list__item--full': (props.spots===0)})
+  DayListItemClass = classNames('day-list__item', {'day-list__item--selected': (props.selected)}, {'day-list__item--full': (props.spots===0)})
   
   const formatSpots = (spotsRemaining) => {
     if (spotsRemaining === 0) {
