@@ -17,6 +17,7 @@ import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
 import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error"
+import Form from "components/Appointment/Form";
 
 storiesOf("Button", module)
   .addParameters({
@@ -130,7 +131,7 @@ storiesOf("InterviewerList", module)
   .add("Selected", () => (
     <InterviewerList
       interviewers={interviewers}
-      value={3}
+      currentInterviewerId={3}
     />
   ))
   .add("Clickable", () => (
@@ -168,6 +169,22 @@ storiesOf("InterviewerList", module)
     <Error
       message="Could not delete appointment"
       onClose={action("onClose")}
+    />
+  ))
+  .add("EditForm", () => (
+    <Form
+      student="Archana"
+      interviewer={2}
+      interviewers={interviewers}
+      onSave={action("onSave")}
+      onCancel={action("onCancel")}
+    />
+  ))
+  .add("CreateForm", () => (
+    <Form
+      interviewers={interviewers}
+      onSave={action("onSave")}
+      onCancel={action("onCancel")}
     />
   ))
 
