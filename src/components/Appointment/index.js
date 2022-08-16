@@ -6,12 +6,16 @@ import Empty from "./Empty";
 import Form from "./Form";
 import useVisualMode from "hooks/useVisualMode";
 import Status from "./Status";
+import Confirm from "./Confirm";
 
 const Appointment = (props) => {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE"
   const SAVING = "SAVING"
+  const DELETING = "DELETING"
+  const CONFIRM = "CONFIRM"
+  const EDIT = "EDIT"
   let initial;
 
   if (props.interview) {
@@ -32,13 +36,25 @@ const Appointment = (props) => {
       transition(SHOW)
     }) 
   }
+
+  const confirmDelete = (id) => {
+    transition(DELETING)
+    props.deleteInterview(id)
+    .then(() => {
+      transition(EMPTY)
+    })
+
+  } 
   return (
     <article className="appointment">
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
-      {mode === SHOW && <Show student={props.interview.student} interviewer={props.interview.interviewer} />}
+      {mode === SHOW && <Show student={props.interview.student} interviewer={props.interview.interviewer} onDelete={() => transition(CONFIRM)} onEdit={() => transition(EDIT)} />}
       {mode === CREATE && <Form interviewers={props.interviewers} onCancel={back} onSave={save}/>}
       {mode === SAVING && <Status message="saving"/>}
+      {mode === DELETING && <Status message="deleting"/>}
+      {mode === CONFIRM && <Confirm message={"Are you sure you would like to delete?"} id={props.id} onCancel={back} onConfirm={confirmDelete}/>}
+      {mode === EDIT && <Form interviewers={props.interviewers} student={props.interview.student} interviewerId={props.interview.interviewer.id} onCancel={back} onSave={save} />}
     </article>
   )
   
