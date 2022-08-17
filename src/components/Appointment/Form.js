@@ -9,6 +9,7 @@ const Form = (props) => {
   const reset = () => {
     setStudent("")
     setInterviewerId(null)
+    setError("")
   }
   const cancel = () => {
     reset()
@@ -23,7 +24,9 @@ const Form = (props) => {
       setError("Please select an interviewer")
       return
     }
+    setError("")
     props.onSave(student, interviewerId)
+    
   }
   return (
     <main className="appointment__card appointment__card--create">
