@@ -22,7 +22,6 @@ const useApplicationData = () => {
     })
     .then(() => {
       const currentInterview = state.appointments[id].interview;
-      console.log(currentInterview)
       const appointment = {
         ...state.appointments[id],
         interview: { ...interview }

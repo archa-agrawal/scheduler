@@ -22,7 +22,7 @@ const DayListItem = (props) => {
     }
   }
   return (
-    <li key={props.id} className={DayListItemClass} onClick={clickHandler}>
+    <li key={props.id} className={DayListItemClass} onClick={clickHandler} data-testid="day">
       <h2  className="text--regular">{props.name}</h2> 
       <h3 className="text--light">{totalSpots}</h3>
     </li>
