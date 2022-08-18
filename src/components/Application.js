@@ -10,7 +10,9 @@ import {
 } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
+// Highest level component
 export default function Application(props) {
+  // Custome hook that manages and sets the state
   const { state, setDay, bookInterview, deleteInterview } =
     useApplicationData();
 

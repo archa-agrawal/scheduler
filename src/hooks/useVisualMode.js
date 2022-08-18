@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// Custom hook for setting and managing visual state
 const useVisualMode = (initial) => {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);

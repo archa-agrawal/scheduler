@@ -1,5 +1,6 @@
 import React from "react";
 
+// Returns header component to display time for each appointment spot
 const Header = ({ time }) => {
   return (
     <header className="appointment__time">

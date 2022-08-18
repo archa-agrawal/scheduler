@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "components/Button";
 
+// returns button component for confirmation action.
 const Confirm = ({ message, id, onConfirm, onCancel }) => {
   return (
     <main className="appointment__card appointment__card--confirm">

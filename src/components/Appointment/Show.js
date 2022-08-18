@@ -1,5 +1,6 @@
 import React from "react";
 
+// Returns show component for booked appointments
 const Show = ({ student, interviewer, onEdit, onDelete }) => {
   return (
     <main className="appointment__card appointment__card--show">

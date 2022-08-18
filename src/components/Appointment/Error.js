@@ -1,5 +1,6 @@
 import React from "react";
 
+// Returns error component for displaying error message.
 const Error = ({ message, onClose }) => {
   return (
     <main className="appointment__card appointment__card--error">

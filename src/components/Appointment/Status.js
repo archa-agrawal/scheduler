@@ -1,5 +1,6 @@
 import React from "react";
 
+// Returns status messeage for saving/deleting appointment
 const Status = ({ message }) => {
   return (
     <main className="appointment__card appointment__card--status">

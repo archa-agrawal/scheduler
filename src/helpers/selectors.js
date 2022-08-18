@@ -1,3 +1,9 @@
+/**
+ * Finds and returns appointments for the given day
+ * @param {object} state - application state
+ * @param {string} day - selected day
+ * @returns array of appointments for the given day
+ */
 const getAppointmentsForDay = (state, day) => {
   const appointmentList = [];
   let appointmentIds = [];
@@ -14,6 +20,13 @@ const getAppointmentsForDay = (state, day) => {
   }
   return appointmentList;
 };
+
+/**
+ * Finds and returns interviewers for the given day
+ * @param {object} state - application state
+ * @param {string} day - selected day
+ * @returns array of interviewers for the given day
+ */
 const getInterviewersForDay = (state, day) => {
   const interviewersList = [];
   let interviewersIds = [];
@@ -30,6 +43,13 @@ const getInterviewersForDay = (state, day) => {
   }
   return interviewersList;
 };
+
+/**
+ * Create new interview
+ * @param {object} state - application state
+ * @param {object} interview
+ * @returns new interview object
+ */
 const getInterview = (state, interview) => {
   if (!interview) {
     return null;

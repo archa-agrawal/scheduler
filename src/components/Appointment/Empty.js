@@ -1,5 +1,6 @@
 import React from "react";
 
+// Returns component for add button on empty appointment
 const Empty = ({ onAdd }) => {
   return (
     <main className="appointment__add">

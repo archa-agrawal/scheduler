@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// Custom hook for managing state
 const useApplicationData = () => {
   const [state, setState] = useState({
     day: "Monday",
@@ -25,6 +26,7 @@ const useApplicationData = () => {
     });
   }, []);
 
+  // Books interview and sets state
   const bookInterview = (id, interview) => {
     return axios
       .put(`http://localhost:8001/api/appointments/${id}`, {
@@ -40,7 +42,7 @@ const useApplicationData = () => {
           ...state.appointments,
           [id]: appointment,
         };
-        const day = Math.floor((id - 1)/ 5);
+        const day = Math.floor((id - 1) / 5);
         const currentSpots = state.days[day].spots;
         const days = [
           ...state.days.slice(0, day),
@@ -53,6 +55,8 @@ const useApplicationData = () => {
         setState({ ...state, days, appointments });
       });
   };
+
+  // deletes interview and set state
   const deleteInterview = (id) => {
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
@@ -63,7 +67,7 @@ const useApplicationData = () => {
           ...state.appointments,
           [id]: appointment,
         };
-        const day = Math.floor((id -1)/ 5);
+        const day = Math.floor((id - 1) / 5);
         const currentSpots = state.days[day].spots;
         const days = [
           ...state.days.slice(0, day),

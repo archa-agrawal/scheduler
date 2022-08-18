@@ -2,6 +2,7 @@ import React from "react";
 import "./InterviewerListItem.scss";
 import classNames from "classnames";
 
+// Returns each interviewer
 const InterviewerListItem = (interviewer) => {
   const interviewerClass = classNames("interviewers__item", {
     "interviewers__item--selected": interviewer.selected,

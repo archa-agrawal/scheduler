@@ -9,6 +9,7 @@ import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
 
+// Returns valid appointment component
 const Appointment = (props) => {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";

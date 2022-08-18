@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
+// Returns form component for adding, editing, and deleting appointment
 const Form = (props) => {
   const [student, setStudent] = useState(props.student || "");
   const [interviewerId, setInterviewerId] = useState(
@@ -17,6 +18,8 @@ const Form = (props) => {
     reset();
     props.onCancel();
   };
+
+  // Function to validate response on save apppintment button
   const validate = () => {
     if (student === "") {
       setError("Student name cannot be blank");

@@ -1,8 +1,8 @@
 import React from "react";
 import classNames from "classnames";
-
 import "components/Button.scss";
 
+// Returns cancel and confirm button component
 export default function Button(props) {
   const buttonClass = classNames(
     "button",
