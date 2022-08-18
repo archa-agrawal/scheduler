@@ -4,34 +4,35 @@ import Button from "components/Button";
 
 const Form = (props) => {
   const [student, setStudent] = useState(props.student || "");
-  const [interviewerId, setInterviewerId] = useState(props.interviewerId || null);
-  const [error, setError] = useState("")
+  const [interviewerId, setInterviewerId] = useState(
+    props.interviewerId || null
+  );
+  const [error, setError] = useState("");
   const reset = () => {
-    setStudent("")
-    setInterviewerId(null)
-    setError("")
-  }
+    setStudent("");
+    setInterviewerId(null);
+    setError("");
+  };
   const cancel = () => {
-    reset()
-    props.onCancel()
-  }
+    reset();
+    props.onCancel();
+  };
   const validate = () => {
-    if(student === "") {
+    if (student === "") {
       setError("Student name cannot be blank");
       return;
     }
-    if(interviewerId === null) {
-      setError("Please select an interviewer")
-      return
+    if (interviewerId === null) {
+      setError("Please select an interviewer");
+      return;
     }
-    setError("")
-    props.onSave(student, interviewerId)
-    
-  }
+    setError("");
+    props.onSave(student, interviewerId);
+  };
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off" onSubmit={event => event.preventDefault()}>
+        <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
             name="name"
@@ -43,7 +44,7 @@ const Form = (props) => {
           />
           <section className="appointment__validation">{error}</section>
         </form>
-        <InterviewerList 
+        <InterviewerList
           interviewers={props.interviewers}
           onChange={setInterviewerId}
           currentInterviewerId={interviewerId}
@@ -51,11 +52,15 @@ const Form = (props) => {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onClick={validate}>Save</Button>
+          <Button danger onClick={cancel}>
+            Cancel
+          </Button>
+          <Button confirm onClick={validate}>
+            Save
+          </Button>
         </section>
       </section>
     </main>
-  )
-}
+  );
+};
 export default Form;
